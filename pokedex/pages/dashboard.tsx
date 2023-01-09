@@ -1,14 +1,107 @@
-import MainDashboard from "../components/Main";
-import Aside from "../components/Aside";
-import { DashboardBody } from "../components/Dasboard";
+import { DashboardBodyLight, DashboardBodyDark } from "../components/Dasboard";
+import { AsideDashboard } from "../components/Aside/style";
+import Image from "next/image";
+import Search from "../components/Search";
+import { useState } from "react";
+import DashboardList from "../components/Main";
 
-export default function Dashboard() {
+export async function getStaticProps() {
+  const dataPokemons = await fetch(
+    "https://pokeapi.co/api/v2/pokemon?limit=120&offset=0"
+  );
+  const dataPokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/ditto`);
+
+  const pokemon = await dataPokemon.json();
+  const pokemons = await dataPokemons.json();
+
+  return {
+    props: { pokemons, pokemon },
+  };
+}
+
+export default function Dashboard({ pokemons, pokemon }: any) {
+  const [poke, setPoke] = useState("");
+  const [search, setSearch] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
+
+  const allPokemons = pokemons.results;
+
+  const includesPoke = allPokemons.map((item: any) => {
+    if (item.name.includes(search) == true) {
+      return item.name;
+    }
+  });
+
+  const filteredPoke = includesPoke.filter(
+    (pocket: any) => pocket !== undefined
+  );
+
   return (
     <>
-      <DashboardBody>
-        <Aside></Aside>
-        <MainDashboard></MainDashboard>
-      </DashboardBody>
+      {darkMode ? (
+        <DashboardBodyDark>
+          <AsideDashboard>
+            <div>
+              <Image
+                src="/images/logo.webp"
+                width="210"
+                height="50"
+                alt="Logo do Pokedex"
+              />
+              <p>
+                Everything you wanted to know about your favorite pocket
+                monsters!
+              </p>
+              <Search setSearch={setSearch}></Search>
+            </div>
+            <ul>
+              {filteredPoke.map((pokemon: any) => (
+                <li key={pokemon} onClick={() => setPoke(pokemon)}>
+                  {pokemon}
+                </li>
+              ))}
+            </ul>
+          </AsideDashboard>
+
+          <DashboardList
+            pokemon={pokemon}
+            poke={poke}
+            setDarkMode={setDarkMode}
+            darkMode={darkMode}
+          ></DashboardList>
+        </DashboardBodyDark>
+      ) : (
+        <DashboardBodyLight>
+          <AsideDashboard>
+            <div>
+              <Image
+                src="/images/logo.webp"
+                width="210"
+                height="50"
+                alt="Logo do Pokedex"
+              />
+              <p>
+                Everything you wanted to know about your favorite pocket
+                monsters!
+              </p>
+              <Search setSearch={setSearch}></Search>
+            </div>
+            <ul>
+              {filteredPoke.map((pokemon: any) => (
+                <li key={pokemon} onClick={() => setPoke(pokemon)}>
+                  {pokemon}
+                </li>
+              ))}
+            </ul>
+          </AsideDashboard>
+          <DashboardList
+            pokemon={pokemon}
+            poke={poke}
+            setDarkMode={setDarkMode}
+            darkMode={darkMode}
+          ></DashboardList>
+        </DashboardBodyLight>
+      )}
     </>
   );
 }

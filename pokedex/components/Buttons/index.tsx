@@ -16,4 +16,5 @@ export const AbleButton = styled.button`
   background-color: var(--color-button-1);
   color: var(--color-letter);
   border-radius: 4px;
+  cursor: pointer;
 `;
