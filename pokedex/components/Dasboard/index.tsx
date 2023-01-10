@@ -7,7 +7,7 @@ export const DashboardBodyDark = styled.body`
 
   --color-brand-1: #000;
   --color-brand-2: #212121;
-  --color-scroll-1: #16103a;
+  --color-scroll-1: #ae4744;
   --color-button-1: #2f55cc;
   --color-grey-0: #000;
   --color-grey-1: #33363a;
@@ -32,7 +32,7 @@ export const DashboardBodyLight = styled.body`
 
   --color-brand-1: #ae4744;
   --color-brand-2: #36b2e6;
-  --color-scroll-1: #ae4744;
+  --color-scroll-1: #16103a;
   --color-button-1: #2f55cc;
   --color-grey-0: #000;
   --color-grey-1: #33363a;

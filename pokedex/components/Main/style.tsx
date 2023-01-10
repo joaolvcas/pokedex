@@ -24,7 +24,7 @@ export const DashboardMain = styled.main`
       background-color: var(--color-grey-3);
       height: 40px;
       margin-bottom: 20px;
-      border-radius: 5px;
+      border-radius: 7px;
       font-weight: 600;
     }
   }

@@ -5,7 +5,7 @@ export default function Search({ setSearch }: any) {
     <InputSearch>
       <input
         type="name"
-        placeholder="Search by name ou number"
+        placeholder="Search by name or number"
         onChange={(event) => setSearch(event.target.value)}
       />
     </InputSearch>

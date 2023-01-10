@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ButtonDarkMode from "../DarkMode";
 import { Select } from "../Layouts/select";
 import { DashboardMain, DashboardMainSelect } from "./style";
@@ -11,7 +11,7 @@ export default function DashboardList({
   darkMode,
 }: any) {
   const [actualPoke, setactualPoke] = useState({
-    name: "charmander",
+    name: "",
     weight: 6,
     height: 85,
     id: 3,
@@ -39,7 +39,7 @@ export default function DashboardList({
     } else {
       setactualPoke(pokedex);
     }
-  }, 200);
+  }, 100);
 
   if (actualPoke.name === undefined) {
     return (

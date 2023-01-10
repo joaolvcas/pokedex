@@ -29,6 +29,7 @@ export const AsideDashboard = styled.ul`
     display: flex;
     flex-direction: column;
     max-height: 400px;
+    min-width: 100%;
     margin-top: 25px;
     overflow-x: auto;
     gap: 10px;
@@ -37,6 +38,7 @@ export const AsideDashboard = styled.ul`
 
   ul::-webkit-scrollbar-track {
     background-color: #f4f4f4;
+    border-radius: 6px;
   }
   ul::-webkit-scrollbar {
     width: 6px;

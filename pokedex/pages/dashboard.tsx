@@ -4,6 +4,7 @@ import Image from "next/image";
 import Search from "../components/Search";
 import { useState } from "react";
 import DashboardList from "../components/Main";
+import Head from "next/head";
 
 export async function getStaticProps() {
   const dataPokemons = await fetch(
@@ -40,6 +41,13 @@ export default function Dashboard({ pokemons, pokemon }: any) {
     <>
       {darkMode ? (
         <DashboardBodyDark>
+          <Head>
+            <title>Dashboard</title>
+            <link
+              rel="icon"
+              href="https://img1.gratispng.com/20171220/kqw/pokeball-png-5a3a4a7e247ce7.9167778215137695981495.jpg"
+            />
+          </Head>
           <AsideDashboard>
             <div>
               <Image
@@ -72,6 +80,13 @@ export default function Dashboard({ pokemons, pokemon }: any) {
         </DashboardBodyDark>
       ) : (
         <DashboardBodyLight>
+          <Head>
+            <title>Dashboard</title>
+            <link
+              rel="icon"
+              href="https://img1.gratispng.com/20171220/kqw/pokeball-png-5a3a4a7e247ce7.9167778215137695981495.jpg"
+            />
+          </Head>
           <AsideDashboard>
             <div>
               <Image

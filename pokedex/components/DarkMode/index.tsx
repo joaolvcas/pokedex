@@ -14,16 +14,16 @@ export default function ButtonDarkMode({ setDarkMode, darkMode }: any) {
     <ButtondmPref onClick={HadleDarkMode}>
       {darkMode ? (
         <Image
-          src={"/images/moon.png"}
-          width="38"
-          height="20"
+          src={"/images/light.png"}
+          width="44"
+          height="24"
           alt="icon dark mode"
         />
       ) : (
         <Image
-          src={"/images/light.png"}
-          width="38"
-          height="20"
+          src={"/images/moon.png"}
+          width="44"
+          height="24"
           alt="icon dark mode"
         />
       )}

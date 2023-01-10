@@ -7,6 +7,7 @@ import { Form } from "../components/Form";
 import { MainLogin } from "../components/Login";
 import Navbar from "../components/Navbar";
 import { ToastError, ToastSuccess } from "../components/Toastify/toast";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,10 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Home</title>
+        <link rel="icon" href="https://img1.gratispng.com/20171220/kqw/pokeball-png-5a3a4a7e247ce7.9167778215137695981495.jpg"/>
+      </Head>
       <Navbar />
       <MainLogin>
         <Image
